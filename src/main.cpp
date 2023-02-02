@@ -23,6 +23,7 @@ int main(int, char**) {
 
         player.handleInput(deltaSeconds);
 
+        window.clear();
         window.draw(player.player);
         window.display();
     }

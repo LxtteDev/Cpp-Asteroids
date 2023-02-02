@@ -1,5 +1,5 @@
 #include <iostream>
-#include <algorithm>
+#include <string>
 #include <SFML/Graphics.hpp>
 
 class Player {
@@ -14,4 +14,7 @@ class Player {
     private:
         float velX = 0;
         float velY = 0;
+
+        float posX = 0;
+        float posY = 0;
 };
