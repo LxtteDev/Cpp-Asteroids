@@ -13,7 +13,7 @@ FetchContent_MakeAvailable(SFML)
 include(CTest)
 enable_testing()
 
-add_executable(Asteroids src/main.cpp src/window/window.h src/window/window.cpp)
+add_executable(Asteroids src/main.cpp src/window/window.h src/window/window.cpp src/player/player.h src/player/player.cpp)
 
 target_link_libraries(Asteroids sfml-graphics)
 

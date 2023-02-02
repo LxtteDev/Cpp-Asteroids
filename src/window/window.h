@@ -6,6 +6,5 @@ class Window: public sf::RenderWindow {
         Window(int width, int height, std::string name);
         ~Window();
 
-    private:
-        // sf::RenderWindow window;
+        void setBackgroundColour(sf::Color colour);
 };
