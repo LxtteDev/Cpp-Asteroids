@@ -8,7 +8,15 @@ int main(int, char**) {
     std::cout << "Starting Astroids!" << std::endl;
 
 	Window window(500, 500, "Asteroids");
-    Player player;
+
+    sf::Texture playerTexture;
+    playerTexture.loadFromFile("content/img/player.png");
+
+    sf::Sprite sprite(playerTexture);
+    float playerSize = (float)30/512;
+    sprite.setScale(playerSize, playerSize);
+
+    Player player(sprite, window);
 
     sf::Clock clock;
 
