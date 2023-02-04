@@ -19,8 +19,8 @@ class Player {
         float velX = 0;
         float velY = 0;
 
-        float posX = 0;
-        float posY = 0;
+        float posX = 250;
+        float posY = 250;
 
         sf::Vector2u size;
 };

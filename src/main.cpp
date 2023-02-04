@@ -1,6 +1,7 @@
 #include <iostream>
 #include "window/window.h"
 #include "player/player.h"
+#include "asteroids/asteroids.h"
 
 #define vector2 sf::Vector2u
 
@@ -8,6 +9,11 @@ int main(int, char**) {
     std::cout << "Starting Astroids!" << std::endl;
 
 	Window window(500, 500, "Asteroids");
+
+    
+    sf::Texture asteroidTexture;
+    asteroidTexture.loadFromFile("content/img/asteroid-large.png");
+    Asteroids asteroidHandler(asteroidTexture, window);
 
     sf::Texture playerTexture;
     playerTexture.loadFromFile("content/img/player.png");
@@ -33,6 +39,7 @@ int main(int, char**) {
 
         window.clear();
         window.draw(player.player);
+        asteroidHandler.update(deltaSeconds, player.player.getPosition());
         window.display();
     }
 }

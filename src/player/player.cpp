@@ -14,20 +14,10 @@ float clamp(float value, float lower, float upper) {
 #define d sf::Keyboard::D
 #define keyPressed(key) (sf::Keyboard::isKeyPressed(key))
 
-#define temp(t) (std::cout << "\r" << t << std::flush)
-
 Player::Player(sf::Sprite sprite, Window& window): mWindow(window) {
-    /* sf::Vector2u size(
-        sprite.getTexture()->getSize().x * sprite.getScale().x,
-        sprite.getTexture()->getSize().y * sprite.getScale().y
-    );
-
-    sprite.setOrigin(size.x / 2.0f, size.y / 2.0f);
-
-    size = size; */
 
     sf::FloatRect bounds = sprite.getLocalBounds();
-    sprite.setOrigin(bounds.width / 2, bounds.height / 2);
+    sprite.setOrigin(bounds.width / 3, bounds.height / 2);
 
     this->player = sprite;
 }
