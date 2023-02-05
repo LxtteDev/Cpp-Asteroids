@@ -10,6 +10,7 @@ class Player {
         ~Player();
 
         void handleInput(float deltaTime);
+        void fire(float deltaTime);
 
         sf::Sprite player;
 

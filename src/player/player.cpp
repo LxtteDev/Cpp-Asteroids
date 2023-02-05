@@ -25,6 +25,10 @@ Player::Player(sf::Sprite sprite, Window& window): mWindow(window) {
 Player::~Player() {
 }
 
+void Player::fire(float deltaTime) {
+    std::cout << "Fired" << std::endl;
+}
+
 void Player::handleInput(float deltaTime) {
     // Position
     float velocityChange = 1.2f * deltaTime;
