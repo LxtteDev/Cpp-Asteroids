@@ -19,6 +19,8 @@ add_executable(Asteroids
     src/player/player.h src/player/player.cpp
     src/asteroids/asteroids.h src/asteroids/asteroids.cpp
     src/asteroids/asteroid.h src/asteroids/asteroid.cpp
+    src/bullets/bullets.h src/bullets/bullets.cpp
+    src/bullets/bullet.h src/bullets/bullet.cpp
 )
 
 target_link_libraries(Asteroids sfml-graphics)

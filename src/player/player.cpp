@@ -14,19 +14,15 @@ float clamp(float value, float lower, float upper) {
 #define d sf::Keyboard::D
 #define keyPressed(key) (sf::Keyboard::isKeyPressed(key))
 
-Player::Player(sf::Sprite sprite, Window& window): mWindow(window) {
+Player::Player(sf::Sprite player, Window& window): mWindow(window) {
 
-    sf::FloatRect bounds = sprite.getLocalBounds();
-    sprite.setOrigin(bounds.width / 3, bounds.height / 2);
+    sf::FloatRect bounds = player.getLocalBounds();
+    player.setOrigin(bounds.width / 3, bounds.height / 2);
 
-    this->player = sprite;
+    this->player = player;
 }
 
 Player::~Player() {
-}
-
-void Player::fire(float deltaTime) {
-    std::cout << "Fired" << std::endl;
 }
 
 void Player::handleInput(float deltaTime) {

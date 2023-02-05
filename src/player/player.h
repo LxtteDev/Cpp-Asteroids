@@ -2,11 +2,12 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include <cmath>
+#include <vector>
 #include "../window/window.h"
 
 class Player {
     public:
-        Player(sf::Sprite sprite, Window& window);
+        Player(sf::Sprite player, Window& window);
         ~Player();
 
         void handleInput(float deltaTime);

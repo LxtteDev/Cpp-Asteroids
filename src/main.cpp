@@ -2,27 +2,40 @@
 #include "window/window.h"
 #include "player/player.h"
 #include "asteroids/asteroids.h"
+#include "bullets/bullets.h"
 
 #define vector2 sf::Vector2u
 
-int main(int, char**) {
+int main() {
     std::cout << "Starting Astroids!" << std::endl;
 
+    // Window
 	Window window(500, 500, "Asteroids");
 
-    
+    // Asteroids
     sf::Texture asteroidTexture;
     asteroidTexture.loadFromFile("content/img/asteroid-large.png");
     Asteroids asteroidHandler(asteroidTexture, window);
 
+    // Player
     sf::Texture playerTexture;
     playerTexture.loadFromFile("content/img/player.png");
 
-    sf::Sprite sprite(playerTexture);
+    sf::Sprite playerSprite(playerTexture);
     float playerSize = (float)30/512;
-    sprite.setScale(playerSize, playerSize);
+    playerSprite.setScale(playerSize, playerSize);
 
-    Player player(sprite, window);
+    Player player(playerSprite, window);
+
+    // Bullets
+    sf::Texture bulletTexture;
+    bulletTexture.loadFromFile("content/img/bullet.png");
+
+    sf::Sprite bulletSprite(bulletTexture);
+    float bulletSize = (float)30/512;
+    bulletSprite.setScale(bulletSize, bulletSize);
+
+    Bullets bulletHandler(bulletSprite, window);
 
     sf::Clock clock;
     bool mouseClicked = 0;
@@ -40,7 +53,7 @@ int main(int, char**) {
             else if (e.type == sf::Event::MouseButtonPressed && e.mouseButton.button == sf::Mouse::Left) {
                 if (!mouseClicked) {
                     mouseClicked = 1;
-                    player.fire(deltaSeconds);
+                    // player.fire(deltaSeconds);
                 }
             } else if (e.type == sf::Event::MouseButtonReleased && e.mouseButton.button == sf::Mouse::Left)
                 mouseClicked = 0;
@@ -51,7 +64,10 @@ int main(int, char**) {
         // Draw
         window.clear();
         window.draw(player.player);
+
+        // Updates
         asteroidHandler.update(deltaSeconds, player.player.getPosition());
+        bulletHandler.update(deltaSeconds, player.player);
 
         // Display
         window.display();
