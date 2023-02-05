@@ -7,8 +7,6 @@
 #define vector2 sf::Vector2u
 
 int main() {
-    std::cout << "Starting Astroids!" << std::endl;
-
     // Window
 	Window window(500, 500, "Asteroids");
 
@@ -16,6 +14,11 @@ int main() {
     sf::Texture asteroidTexture;
     asteroidTexture.loadFromFile("content/img/asteroid-large.png");
     Asteroids asteroidHandler(asteroidTexture, window);
+
+    // Bullets
+    sf::Texture bulletTexture;
+    bulletTexture.loadFromFile("content/img/bullet.png");
+    Bullets bulletHandler(bulletTexture, window);
 
     // Player
     sf::Texture playerTexture;
@@ -26,16 +29,6 @@ int main() {
     playerSprite.setScale(playerSize, playerSize);
 
     Player player(playerSprite, window);
-
-    // Bullets
-    sf::Texture bulletTexture;
-    bulletTexture.loadFromFile("content/img/bullet.png");
-
-    sf::Sprite bulletSprite(bulletTexture);
-    float bulletSize = (float)30/512;
-    bulletSprite.setScale(bulletSize, bulletSize);
-
-    Bullets bulletHandler(bulletSprite, window);
 
     sf::Clock clock;
     bool mouseClicked = 0;
@@ -53,7 +46,7 @@ int main() {
             else if (e.type == sf::Event::MouseButtonPressed && e.mouseButton.button == sf::Mouse::Left) {
                 if (!mouseClicked) {
                     mouseClicked = 1;
-                    // player.fire(deltaSeconds);
+                    bulletHandler.fire(player.player);
                 }
             } else if (e.type == sf::Event::MouseButtonReleased && e.mouseButton.button == sf::Mouse::Left)
                 mouseClicked = 0;
@@ -67,7 +60,7 @@ int main() {
 
         // Updates
         asteroidHandler.update(deltaSeconds, player.player.getPosition());
-        bulletHandler.update(deltaSeconds, player.player);
+        bulletHandler.update(deltaSeconds);
 
         // Display
         window.display();
