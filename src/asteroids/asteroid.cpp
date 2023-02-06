@@ -39,3 +39,7 @@ void Asteroid::draw(float deltaTime, Window &window) {
     this->mSprite.setPosition(position);
     window.draw(this->mSprite);
 }
+
+sf::FloatRect Asteroid::bounds() {
+    return this->mSprite.getGlobalBounds();
+}

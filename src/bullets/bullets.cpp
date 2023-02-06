@@ -1,11 +1,11 @@
 #include "bullets.h"
 
-Bullets::Bullets(sf::Texture texture, Window& window): mTexture(texture), mWindow(window) {};
+Bullets::Bullets(sf::Texture& texture, Window& window, Asteroids& asteroidHandler): mTexture(texture), mWindow(window), asteroids(asteroidHandler) {};
 
 void Bullets::update(float deltaTime) {
     for (int i = 0; i < this->bullets.size(); i++) {
         Bullet& bullet = this->bullets[i];
-        if (bullet.draw(deltaTime, this->mWindow))
+        if (bullet.draw(deltaTime, this->mWindow, this->asteroids))
             this->bullets.erase(this->bullets.begin() + i);
     }
 }

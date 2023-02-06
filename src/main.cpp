@@ -1,7 +1,6 @@
 #include <iostream>
 #include "window/window.h"
 #include "player/player.h"
-#include "asteroids/asteroids.h"
 #include "bullets/bullets.h"
 
 #define vector2 sf::Vector2u
@@ -18,7 +17,7 @@ int main() {
     // Bullets
     sf::Texture bulletTexture;
     bulletTexture.loadFromFile("content/img/bullet.png");
-    Bullets bulletHandler(bulletTexture, window);
+    Bullets bulletHandler(bulletTexture, window, asteroidHandler);
 
     // Player
     sf::Texture playerTexture;

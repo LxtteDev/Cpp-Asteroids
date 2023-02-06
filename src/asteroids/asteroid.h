@@ -6,15 +6,13 @@
 const float size = 500.0f;
 const float asteroidSpeed = 130.0f;
 
-template <typename T> int sgn(T val) {
-    return (T(0) < val) - (val < T(0));
-}
-
 class Asteroid {
     public:
         Asteroid(sf::Sprite sprite, sf::Vector2f playerPos);
 
         void draw(float deltaTime, Window& window);
+
+        sf::FloatRect bounds();
         sf::Vector2f velocity;
 
     private:

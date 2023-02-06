@@ -1,9 +1,8 @@
-#include <vector>
 #include "bullet.h"
 
 class Bullets {
     public:
-        Bullets(sf::Texture texture, Window& window);
+        Bullets(sf::Texture& texture, Window& window, Asteroids& asteroidHandler);
 
         void update(float deltaTime);
         void fire(sf::Sprite player);
@@ -12,4 +11,5 @@ class Bullets {
         sf::Texture mTexture;
         Window& mWindow;
         std::vector<Bullet> bullets;
+        Asteroids& asteroids;
 };

@@ -10,6 +10,8 @@ class Asteroids {
         ~Asteroids();
 
         void update(float deltaTime, sf::Vector2f playerPos);
+        bool intersect(int index);
+        std::vector<Asteroid>& getAsteroids();
 
     private:
         void createAsteroid(sf::Vector2f playerPos);
