@@ -8,13 +8,14 @@ const float asteroidSpeed = 130.0f;
 
 class Asteroid {
     public:
-        Asteroid(sf::Sprite sprite, sf::Vector2f playerPos);
+        Asteroid(sf::Sprite sprite, sf::Vector2f position, sf::Vector2f velocity, bool type);
 
         void draw(float deltaTime, Window& window);
 
         sf::FloatRect bounds();
-        sf::Vector2f velocity;
+        sf::Sprite mSprite;
+        bool mType;
 
     private:
-        sf::Sprite mSprite;
+        sf::Vector2f mVelocity;
 };
