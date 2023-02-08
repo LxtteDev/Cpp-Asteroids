@@ -14,8 +14,8 @@ class Asteroid {
 
         sf::FloatRect bounds();
         sf::Sprite mSprite;
+        sf::Vector2f mVelocity;
         bool mType;
 
     private:
-        sf::Vector2f mVelocity;
 };
