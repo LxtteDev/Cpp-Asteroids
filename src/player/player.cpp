@@ -1,7 +1,7 @@
 #include "player.h"
 
 const float threshold = 1e-6f;
-const float maxSpeed = 0.2f;
+const float maxSpeed = 0.1f;
 
 // Clamp
 float clamp(float value, float lower, float upper) {
@@ -70,4 +70,17 @@ void Player::handleInput(float deltaTime) {
     float rotation = atan2(mousePos.y - this->posY, mousePos.x - this->posX) * 180 / 3.1415;
 
     this->player.setRotation(rotation);
+}
+
+int Player::detectCrash(Asteroids& asteroids) {
+    sf::FloatRect bounds(this->player.getGlobalBounds());
+    std::vector<Asteroid>& asteroidsElements(asteroids.getAsteroids());
+
+    for (int i = 0; i < asteroidsElements.size(); i++) {
+        Asteroid& asteroid = asteroidsElements[i];
+        if (asteroid.bounds().intersects(bounds))
+            return 1;
+    }
+
+    return 0;
 }

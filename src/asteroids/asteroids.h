@@ -1,8 +1,8 @@
-#include <SFML/Graphics.hpp>
 #include <vector>
-#include <iostream>
-#include "../window/window.h"
 #include "asteroid.h"
+
+#ifndef ASTEROIDS_H_
+#define ASTEROIDS_H_
 
 class Asteroids {
     public:
@@ -21,3 +21,5 @@ class Asteroids {
         sf::Texture texture;
         std::vector<Asteroid> asteroids;
 };
+
+#endif

@@ -51,6 +51,10 @@ int main() {
                 mouseClicked = 0;
 
         // Player
+        int crash(player.detectCrash(asteroidHandler));
+        if (crash)
+            break;
+
         player.handleInput(deltaSeconds);
 
         // Draw
@@ -64,4 +68,7 @@ int main() {
         // Display
         window.display();
     }
+
+    std::cout << "You died!" << std::endl;
+    window.close();
 }

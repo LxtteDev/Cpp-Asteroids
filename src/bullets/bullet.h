@@ -1,5 +1,8 @@
 #include "../asteroids/asteroids.h"
 
+#ifndef BULLET_H_
+#define BULLET_H_
+
 const float bulletSpeed = 260.0f;
 
 class Bullet {
@@ -12,3 +15,5 @@ class Bullet {
         sf::Vector2f velocity;
         sf::Sprite mSprite;
 };
+
+#endif

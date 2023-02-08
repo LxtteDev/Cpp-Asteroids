@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
-#include <SFML/Graphics.hpp>
 #include <cmath>
 #include <vector>
-#include "../window/window.h"
+#include "../asteroids/asteroids.h"
+
+#ifndef PLAYER_H_
+#define PLAYER_H_
 
 class Player {
     public:
@@ -12,6 +14,7 @@ class Player {
 
         void handleInput(float deltaTime);
         void fire(float deltaTime);
+        int detectCrash(Asteroids& asteroids);
 
         sf::Sprite player;
 
@@ -24,5 +27,7 @@ class Player {
         float posX = 250;
         float posY = 250;
 
-        sf::Vector2u size;
+        sf::Vector2u mSize;
 };
+
+#endif

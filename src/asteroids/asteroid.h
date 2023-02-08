@@ -1,7 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "../window/window.h"
 #include <random>
+#include "../window/window.h"
+
+#ifndef ASTEROID_H_
+#define ASTEROID_H_
 
 const float size = 500.0f;
 const float asteroidSpeed = 130.0f;
@@ -19,3 +22,5 @@ class Asteroid {
 
     private:
 };
+
+#endif
