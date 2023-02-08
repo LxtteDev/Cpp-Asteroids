@@ -69,6 +69,29 @@ int main() {
         window.display();
     }
 
-    std::cout << "You died!" << std::endl;
-    window.close();
+    // Load font
+    sf::Font arial;
+    arial.loadFromFile("content/arial.ttf");
+
+    // Create text
+    sf::Text text;
+    text.setString("GAME OVER");
+    text.setFont(arial);
+    text.setCharacterSize(60);
+
+    // Display text
+    sf::FloatRect textRect = text.getLocalBounds();
+    text.setOrigin(textRect.left + textRect.width / 2.0f,
+                    textRect.top + textRect.height / 2.0f);
+    text.setPosition(sf::Vector2f(250.0f, 250.0f));
+    window.draw(text);
+
+    while (window.isOpen()) {
+        sf::Event e;
+		while (window.pollEvent(e))
+			if (e.type == sf::Event::Closed)
+				window.close();
+
+        window.display();
+    }
 }
